@@ -1,0 +1,56 @@
+﻿@model List<Doctor>
+<link href="~/css/table.css" rel="stylesheet" />
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    #button a{
+        color:white;
+        font-size:20px;
+        text-decoration:none;
+    }
+</style>
+
+<button id="button" type="button" class="btn btn-primary"><a  asp-area="" asp-controller="Doctor" asp-action="Create">create Doctor</a></button>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered   table-striped" style="margin-top:0px">
+            <thead class="table__head">
+                <tr class="winner__table">
+                   
+                    <th><i class="fa fa-user-md" aria-hidden="true"></i> Doctor Name</th>
+                    <th><i class="fa fa-child" aria-hidden="true"></i> Doctor Age</th>
+                    <th><i class="fa fa-toggle-on" aria-hidden="true"></i> IS Active</th>
+                    <th><i class="fa fa-map-marker" aria-hidden="true"></i> Address</th>
+                    
+                    <th><i class="fa fa-trash" aria-hidden="true"></i> Delete</th>
+                    
+                </tr>
+            </thead>
+          @foreach(Doctor I in Model)
+            {
+                <tbody>
+                    <tr class="winner__table">
+                        <td>@I.DoctorName</td>
+                        <td>@I.DoctorAge</td>
+                        <td>@I.IsActive</td>
+                        <td>@I.Address</td>
+                       
+                       
+                        <td><a href="/Doctor/Delete/@I.DoctorId"><i class="fa fa-trash-o" style="font-size:20px;color:#4F89D4"></i></a></td>
+                        
+                    </tr>
+
+
+
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
